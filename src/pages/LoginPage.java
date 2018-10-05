@@ -15,7 +15,6 @@ public class LoginPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
-
     //*********Web Elements*********
     String usenameId = "email";
     String passwordId = "passwd";
@@ -24,11 +23,7 @@ public class LoginPage extends BasePage{
     String createAccountId = "SubmitCreate";
 
 
-
-
-
     //*********Page Methods*********
-
     public void loginToAutomationWebsite (String username, String password){
         //Enter Username(Email)
         writeText(By.id(usenameId),username);

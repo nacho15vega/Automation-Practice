@@ -2,27 +2,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" thread-count="3" parallel="tests" >
 
-    <test name="SafariTest">
-        <parameter name="browser" value="Safari" />
-        <classes>
-            <class name="tests.LoginTest">
-                <methods>
-                    <include name="failed_signUpUser_withExistingEmail"></include>
-                    <include name="validLoginTest"></include>
-                    <include name="signUpNewUser"></include>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
     <test name="FirefoxTest">
         <parameter name="browser" value="Firefox" />
         <classes>
             <class name="tests.LoginTest">
                 <methods>
-                    <include name="failed_signUpUser_withExistingEmail"></include>
+                    <include name="signUpUser_withExistingEmail"></include>
                     <include name="validLoginTest"></include>
                     <include name="signUpNewUser"></include>
+                    <include name="failed_cartPageHasItems"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="SafariTest">
+        <parameter name="browser" value="Safari" />
+        <classes>
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="signUpUser_withExistingEmail"></include>
+                    <include name="validLoginTest"></include>
+                    <include name="signUpNewUser"></include>
+                    <include name="failed_cartPageHasItems"></include>
                 </methods>
             </class>
         </classes>
@@ -33,12 +35,12 @@
         <classes>
             <class name="tests.LoginTest">
                 <methods>
-                    <include name="failed_signUpUser_withExistingEmail"></include>
+                    <include name="signUpUser_withExistingEmail"></include>
                     <include name="validLoginTest"></include>
                     <include name="signUpNewUser"></include>
+                    <include name="failed_cartPageHasItems"></include>
                 </methods>
             </class>
         </classes>
     </test>
-
 </suite>

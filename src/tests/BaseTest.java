@@ -66,6 +66,7 @@ public class BaseTest {
             throw new Exception("Browser is not correct");
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     protected static int getRandomNumberInRange(int min, int max) {

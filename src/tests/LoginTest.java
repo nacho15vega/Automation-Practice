@@ -1,10 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.MyAccountPage;
-import pages.RegistrationPage;
+import pages.*;
 
 import static org.testng.Assert.assertTrue;
 
@@ -41,7 +38,7 @@ public class LoginTest extends BaseTest {
         //*************TEST DATA*************
         String firstName = "Peter";
         String lastName = "Parker";
-        String email = "peter.parker_"+getRandomNumberInRange(0,100)+"@gmail.net";
+        String email = "peter.parker_"+getRandomNumberInRange(100,500)+"@avantica.com";
         String password = "123456";
         int birthDay = 10;
         int birthMonth = 8;
@@ -95,7 +92,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(priority = 2)
-    public void failed_signUpUser_withExistingEmail() throws InterruptedException {
+    public void signUpUser_withExistingEmail() throws InterruptedException {
         String email = "peter.parker@gmail.net";
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver, wait);
@@ -114,6 +111,16 @@ public class LoginTest extends BaseTest {
         assertTrue(loginPage.isErrorMessageDisplayed_EmailAlreadyInUse(), "The error message wasn't displayed");
     }
 
+    @Test(priority = 3)
+    public void failed_cartPageHasItems() throws InterruptedException {
+        //*************PAGE INSTANTIATIONS*************
+        HomePage homePage = new HomePage(driver, wait);
+        //*************PAGE METHODS********************
+        homePage.goToN11();
+        CartPage cartPage = homePage.goToCartPage();
+        Thread.sleep(5000);
+        assertTrue(cartPage.isCartEmpty(), "The cart is empty");
+    }
 
 
 
